@@ -2,6 +2,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+import qualified Data.Set as S
+import Text.Pandoc.Options
+import System.IO.Unsafe(unsafePerformIO)
 
 githubConfiguration :: Configuration
 githubConfiguration = defaultConfiguration
@@ -12,7 +15,8 @@ githubConfiguration = defaultConfiguration
 
 --------------------------------------------------------------------------------
 main :: IO ()
-main = hakyllWith githubConfiguration$ do
+main = 
+    hakyllWith githubConfiguration$ do
     match "images/*" $ do
         route   idRoute
         compile copyFileCompiler
@@ -29,7 +33,7 @@ main = hakyllWith githubConfiguration$ do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocMathCompiler
             >>= loadAndApplyTemplate "templates/post.html"    postCtx
             >>= loadAndApplyTemplate "templates/default.html" postCtx
             >>= relativizeUrls
@@ -72,3 +76,20 @@ postCtx =
     dateField "date" "%B %e, %Y" `mappend`
     defaultContext
 
+--------------------------------------------------------------------------------
+pandocMathCompiler =
+    let
+        mathExtensions =
+            [ Ext_tex_math_dollars 
+            , Ext_tex_math_double_backslash 
+            , Ext_latex_macros ]
+        defaultExtensions = writerExtensions defaultHakyllWriterOptions 
+        newExtensions = foldr enableExtension defaultExtensions mathExtensions
+        writerOptions =
+            defaultHakyllWriterOptions 
+            { writerExtensions = newExtensions
+            , writerHTMLMathMethod = MathJax ""
+            }
+    in pandocCompilerWith defaultHakyllReaderOptions writerOptions
+
+-------------------------------------------------------------------------------

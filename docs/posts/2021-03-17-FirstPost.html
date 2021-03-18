@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Rishi - This is an example post</title>
+        <title>Rishi - First post, Experiments</title>
         <link rel="stylesheet" type="text/css" href="../css/default.css" />
         <link rel="stylesheet" type="text/css" href="../css/syntax.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css" integrity="sha384-t5CR+zwDAROtph0PXGte6ia8heboACF9R5l/DiY+WZ3P2lxNgvJkQk5n7GPvLMYw" crossorigin="anonymous">
@@ -28,32 +28,33 @@
         </div>
 
         <div id="content">
-            <h1>This is an example post</h1>
+            <h1>First post, Experiments</h1>
 
             <div class="info">
     Posted on March 17, 2021
     
 </div>
 
-<p>When i started this blog, I wrote this first post just to experiment with various features of Hakyll. I will not delete this post. and possibly use it later to perform more experiments as the site evolves.</p>
+<p>When I started this blog, I wrote this first post just to experiment with various features of Hakyll. I will not delete this post, and possibly use it later to perform more experiments as the site evolves.</p>
+<p>Syntax highlighting of python code:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> f(x):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  <span class="cf">return</span> x <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
 <p>Check the latex typesetting.</p>
 <p><span class="math display">\[\begin{equation}
-\sin^2 + \cos^2 =1
+\sin^2\theta + \cos^2\theta =1
 \end{equation}\]</span></p>
 <p>Let us try another equation</p>
 <p><span class="math display">\[\begin{equation}
 \frac{x^2} {x^3 +1}
 \end{equation}\]</span></p>
-<p>Let us end with a C++ code</p>
+<p>Let us end with C++ code</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">int</span> f(<span class="dt">int</span> n) {</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  <span class="bu">std::</span>vector&lt;<span class="dt">int</span>&gt; v(n);</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  <span class="cf">for</span> (<span class="dt">int</span> i=<span class="dv">0</span>; i &lt; n; i++&gt;) {</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    v[i] = i;</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>  }</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>}</span></code></pre></div>
-<p>and Fibonacci number in haskell</p>
+<p>and Fibonacci numbers in Haskell.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>fib <span class="ot">=</span> <span class="dv">1</span> <span class="op">:</span> <span class="dv">1</span> <span class="op">:</span> <span class="fu">zipWith</span> (<span class="op">+</span>) fib (<span class="fu">drop</span> <span class="dv">1</span> fib)</span></code></pre></div>
 
         </div>
